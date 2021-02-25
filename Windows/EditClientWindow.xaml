@@ -1,0 +1,121 @@
+﻿<Window x:Class="WpfAppSalon.Windows.EditClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppSalon.Windows"
+        mc:Ignorable="d"
+        Icon="/Res/beauty_logo.png"
+        Title="Работа с клиентом" Height="500" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="1"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    x:Name="btnPhoto"
+                    Content="Загрузить фотографию"
+                    Padding="5"
+                    Margin="8" Click="btnPhoto_Click"/>
+            <StackPanel Grid.Row="2" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                <Button x:Name="btnSave"
+                        Content="Сохранить"
+                        Padding="5"
+                        Margin="8"
+                        Width="90" Click="btnSave_Click"/>
+                <Button x:Name="btnExit"
+                        Content="Назад"
+                        Padding="5"
+                        Margin="8"
+                        Width="90" Click="btnExit_Click"/>
+            </StackPanel>
+            <Image Grid.Row="0"
+                x:Name="imbo" 
+                   Stretch="Fill"
+                   Width="200"
+                   Height="200"/>
+        </Grid>
+        <StackPanel Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <TextBlock Text="ID" Margin="5" x:Name="tid"/>
+                <TextBox x:Name="tbid"
+                         Margin="5"
+                         Width="150"
+                         IsEnabled="False"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <TextBlock Text="Фамилия"
+                           Margin="5"/>
+                <TextBox x:Name="tblname"
+                         Width="150"
+                         Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <TextBlock Text="Имя"
+                           Margin="5"/>
+                <TextBox x:Name="tbfname"
+                         Width="150"
+                         Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <TextBlock Text="Отчество"
+                           Margin="5"/>
+                <TextBox x:Name="tbpa"
+                         Width="150"
+                         Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <TextBlock Text="Пол"
+                           Margin="5"/>
+                <ComboBox x:Name="tbgen"
+                          Width="150"
+                          Margin="5">
+                    <ComboBoxItem Content="мужской"/>
+                    <ComboBoxItem Content="женский"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <TextBlock Text="Дата рождения"
+                           Margin="5"/>
+                <DatePicker x:Name="tbbd"
+                         Width="150"
+                         Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <TextBlock Text="Email"
+                           Margin="5"/>
+                <TextBox x:Name="tbem"
+                         Width="150"
+                         Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <TextBlock Text="Номер телефона"
+                           Margin="5"/>
+                <TextBox x:Name="tbnum"
+                         Width="150"
+                         Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,52 @@
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WpfAppSalon.csprojAssemblyReference.cache
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\MainWindow.g.cs
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WindowClient.g.cs
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\App.g.cs
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WpfAppSalon_MarkupCompile.cache
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WpfAppSalon_MarkupCompile.lref
+C:\Users\vepri\source\repos\WpfAppSalon\bin\Debug\WpfAppSalon.exe.config
+C:\Users\vepri\source\repos\WpfAppSalon\bin\Debug\WpfAppSalon.exe
+C:\Users\vepri\source\repos\WpfAppSalon\bin\Debug\WpfAppSalon.pdb
+C:\Users\vepri\source\repos\WpfAppSalon\bin\Debug\EntityFramework.dll
+C:\Users\vepri\source\repos\WpfAppSalon\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\vepri\source\repos\WpfAppSalon\bin\Debug\EntityFramework.xml
+C:\Users\vepri\source\repos\WpfAppSalon\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\vepri\source\repos\WpfAppSalon\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\MainWindow.baml
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WindowClient.baml
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WpfAppSalon.g.resources
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WpfAppSalon.Properties.Resources.resources
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WpfAppSalon.csproj.GenerateResource.cache
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WpfAppSalon.csproj.CoreCompileInputs.cache
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WpfAppSalon.csproj.CopyComplete
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WpfAppSalon.exe
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WpfAppSalon.pdb
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\Windows\Window1.g.cs
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\Windows\Window1.baml
+C:\Users\vepri\source\repos\WpfAppSalon\obj\Debug\WpfAppSalon_Content.g.cs
+D:\System\Рабочий стол\WpfAppSalon\bin\Debug\WpfAppSalon.exe.config
+D:\System\Рабочий стол\WpfAppSalon\bin\Debug\WpfAppSalon.exe
+D:\System\Рабочий стол\WpfAppSalon\bin\Debug\WpfAppSalon.pdb
+D:\System\Рабочий стол\WpfAppSalon\bin\Debug\EntityFramework.dll
+D:\System\Рабочий стол\WpfAppSalon\bin\Debug\EntityFramework.SqlServer.dll
+D:\System\Рабочий стол\WpfAppSalon\bin\Debug\EntityFramework.xml
+D:\System\Рабочий стол\WpfAppSalon\bin\Debug\EntityFramework.SqlServer.xml
+D:\System\Рабочий стол\WpfAppSalon\bin\Debug\ru\EntityFramework.resources.dll
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\WpfAppSalon.csprojAssemblyReference.cache
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\App.g.cs
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\WpfAppSalon_MarkupCompile.cache
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\WpfAppSalon_MarkupCompile.lref
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\WpfAppSalon.g.resources
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\WpfAppSalon.Properties.Resources.resources
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\WpfAppSalon.csproj.GenerateResource.cache
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\WpfAppSalon.csproj.CoreCompileInputs.cache
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\WpfAppSalon.csproj.CopyComplete
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\WpfAppSalon.exe
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\WpfAppSalon.pdb
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\WpfAppSalon_Content.g.cs
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\Windows\ClientListWindow.g.cs
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\Windows\EditClientWindow.g.cs
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\Windows\ClientListWindow.baml
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\Windows\EditClientWindow.baml
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\Windows\ClientServiceListWindow.g.cs
+D:\System\Рабочий стол\WpfAppSalon\obj\Debug\Windows\ClientServiceListWindow.baml

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище SalonModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ID_client" />
+    </Key>
+    <Property Name="ID_client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="First_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patonymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="1" />
+    <Property Name="Number_phone" Type="nvarchar" MaxLength="25" />
+    <Property Name="BD" Type="date" />
+    <Property Name="Email" Type="nvarchar" MaxLength="20" />
+    <Property Name="Date_registration" Type="date" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ClientTag">
+    <Key>
+      <PropertyRef Name="ID_clientTag" />
+    </Key>
+    <Property Name="ID_clientTag" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client_id" Type="int" />
+    <Property Name="Tag_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="ID_gender" />
+    </Key>
+    <Property Name="ID_gender" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Name_gender" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Record">
+    <Key>
+      <PropertyRef Name="ID_record" />
+    </Key>
+    <Property Name="ID_record" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client_id" Type="int" />
+    <Property Name="Record_time" Type="datetime" />
+    <Property Name="Service_time" Type="int" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ID_service" />
+    </Key>
+    <Property Name="ID_service" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" />
+    <Property Name="Time" Type="int" />
+    <Property Name="Sale" Type="int" />
+    <Property Name="Discount" Type="float" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="ID_tag" />
+    </Key>
+    <Property Name="ID_tag" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_tag" Type="nvarchar" MaxLength="30" />
+    <Property Name="Color_tag" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__Clients__Gender__4BAC3F29">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="ID_gender" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClientTag__Clien__5EBF139D">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+    <End Role="ClientTag" Type="Self.ClientTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ID_client" />
+      </Principal>
+      <Dependent Role="ClientTag">
+        <PropertyRef Name="Client_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClientTag__Tag_i__5FB337D6">
+    <End Role="Tag" Type="Self.Tag" Multiplicity="0..1" />
+    <End Role="ClientTag" Type="Self.ClientTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tag">
+        <PropertyRef Name="ID_tag" />
+      </Principal>
+      <Dependent Role="ClientTag">
+        <PropertyRef Name="Tag_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Record__Client_i__534D60F1">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+    <End Role="Record" Type="Self.Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ID_client" />
+      </Principal>
+      <Dependent Role="Record">
+        <PropertyRef Name="Client_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Record__Service___5441852A">
+    <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="Record" Type="Self.Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID_service" />
+      </Principal>
+      <Dependent Role="Record">
+        <PropertyRef Name="Service_time" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище SalonModelContainer">
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientTag" EntityType="Self.ClientTag" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Record" EntityType="Self.Record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Clients__Gender__4BAC3F29" Association="Self.FK__Clients__Gender__4BAC3F29">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClientTag__Clien__5EBF139D" Association="Self.FK__ClientTag__Clien__5EBF139D">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="ClientTag" EntitySet="ClientTag" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClientTag__Tag_i__5FB337D6" Association="Self.FK__ClientTag__Tag_i__5FB337D6">
+      <End Role="Tag" EntitySet="Tag" />
+      <End Role="ClientTag" EntitySet="ClientTag" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Record__Client_i__534D60F1" Association="Self.FK__Record__Client_i__534D60F1">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Record" EntitySet="Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Record__Service___5441852A" Association="Self.FK__Record__Service___5441852A">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="Record" EntitySet="Record" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

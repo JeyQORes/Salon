@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="64e05de27442434eab7752a6d0754255" Name="Diagram1">
+        <EntityTypeShape EntityType="SalonFaceModel.Clients" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalonFaceModel.Gender" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalonFaceModel.Service" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalonFaceModel.ServiceClients" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalonFaceModel.Tags" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalonFaceModel.TagsClient" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="SalonFaceModel.FK__Clients__Gender__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="SalonFaceModel.FK__ServiceCl__Clien__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="SalonFaceModel.FK__TagsClien__Clien__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="SalonFaceModel.FK__ServiceCl__Servi__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="SalonFaceModel.FK__TagsClien__TagID__44FF419A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

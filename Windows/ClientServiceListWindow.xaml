@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfAppSalon.Windows.ClientServiceListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppSalon.Windows"
+        mc:Ignorable="d"
+        Title="ClientServiceListWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel Margin="10">
+                <TextBlock x:Name="tbFullName"/>
+            </StackPanel>
+            <ListView x:Name="List">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="GhostWhite" BorderThickness="1"
+                                CornerRadius="8,8,3,3"
+                                BorderBrush="Silver">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="{Binding Date}"/>
+                                <TextBlock Text="Количество файлов: 0"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Window>

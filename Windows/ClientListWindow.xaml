@@ -1,0 +1,150 @@
+﻿<Window x:Class="WpfAppSalon.Windows.ClientListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppSalon.Windows"
+        mc:Ignorable="d"
+        Icon="/Res/beauty_logo.png"
+        Title="Список клиентов" Height="500" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="Пол:" 
+                       Margin="0, 8"/>
+            <ComboBox Width="100" 
+                      x:Name="cbGender" 
+                      Margin="8, 8" 
+                      SelectionChanged="cbGender_SelectionChanged">
+                <ComboBoxItem>ВСЕ</ComboBoxItem>
+                <ComboBoxItem>Мужской</ComboBoxItem>
+                <ComboBoxItem>Женский</ComboBoxItem>
+            </ComboBox>
+            <TextBlock Text="Поиск:" Margin="0, 8"/>
+            <TextBox Width="100" 
+                     x:Name="tbSearch" 
+                     Margin="8, 8" 
+                     TextChanged="tbSearch_TextChanged"/>
+            <TextBlock Text="Сортировка:" Margin="0, 8"/>
+            <ComboBox Width="100" Margin="8, 8" x:Name="cmbSortir" 
+                      SelectionChanged="cmbSortir_SelectionChanged">
+                <ComboBoxItem>По фамилии</ComboBoxItem>
+                <ComboBoxItem>По дате последнего посещения</ComboBoxItem>
+                <ComboBoxItem>По количеству посещений</ComboBoxItem>
+            </ComboBox>
+            <CheckBox x:Name="chbDB" Margin="8, 8" 
+                      Content="День рождения в текущем месяце"
+                      Click="chbDB_Click"
+                      />
+            <Button x:Name="btSbros"
+                    Content="Сбросить фильтры"
+                    Margin="8,8" Click="btSbros_Click"
+                    />
+            <TextBlock x:Name="tbNumber" Margin="8, 8"/>
+        </StackPanel>
+        <!--<StackPanel Grid.Row="1" Orientation="Vertical">-->
+        <DataGrid Grid.Row="1" 
+                Height="auto" x:Name="Data" 
+                      AutoGenerateColumns="False" 
+                      CanUserAddRows="False" 
+                      CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Идентификатор"
+                                        Binding="{Binding Path =IDClient}"
+                                        Width="*"/>
+                <DataGridTextColumn Header="Фамилия"
+                                        Binding="{Binding Path= LastName}"
+                                        Width="*"/>
+                <DataGridTextColumn Header="Имя"
+                                        Binding="{Binding Path= FirstName}"
+                                        Width="*"/>
+                <DataGridTextColumn Header="Отчество"
+                                        Binding="{Binding Path= Patronymic}"
+                                        Width="*"/>
+                <DataGridTextColumn Header="Пол"
+                                        Binding="{Binding Gen}"
+                                        Width="*"/>
+                <DataGridTextColumn Header="Номер телефона"
+                                        Binding="{Binding Path= NumberPhone}"
+                                        Width="*"/>
+                <DataGridTextColumn Header="Дата рождения"
+                                        Binding="{Binding Path= BirthDay}"
+                                        Width="*"/>
+                <DataGridTextColumn Header="Почта"
+                                        Binding="{Binding Path= Email}"
+                                        Width="*"/>
+                <DataGridTextColumn Header="Дата регистрации"
+                                        Binding="{Binding Path= Registration}"
+                                        Width="*"/>
+                <DataGridTextColumn Header="Количество посещений"
+                                        Binding="{Binding VisitCount}"
+                                        Width="*"/>
+                <DataGridTextColumn Header="Дата последнего посещения"
+                                        Binding="{Binding DateLastVisit}"
+                                        Width="*"/>
+                <DataGridTemplateColumn Header="Теги клиента"
+                                            Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ListView ItemsSource="{Binding Tags}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding NameTag}" 
+                                                       Foreground="{Binding Colog}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--</StackPanel>-->
+        <Grid VerticalAlignment="Center"
+              Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0"
+                        Orientation="Horizontal">
+                <TextBlock Text="Количество записей на странице"/>
+                <ComboBox x:Name="cbCountRows"
+                         Margin="8"
+                         Width="60" SelectionChanged="cbCountRows_SelectionChanged">
+                    <ComboBoxItem Content="все"/>
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="50"/>
+                    <ComboBoxItem Content="200"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1">
+                <Button x:Name="left"
+                        Content="Лево" Click="left_Click"
+                        HorizontalAlignment="Center"/>
+                <TextBox x:Name="numpage"
+                         Width="30"
+                         IsEnabled="False"
+                         HorizontalAlignment="Center"/>
+                <Button x:Name="right"
+                        HorizontalAlignment="Center"
+                        Content="Право" Click="right_Click"/>
+                <TextBlock x:Name="tbCount"
+                           Width="Auto"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="3"
+            Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btRem" Content="Редактировать" Margin="8, 8" Width="100" Click="btRem_Click"/>
+            <Button x:Name="btDel" Content="Удалить" Margin="8, 8"  Width="100" Click="btDel_Click"/>
+            <Button x:Name="btAdd" Content="Добавить" Margin="8, 8"  Width="100" Click="btAdd_Click"/>
+            <Button x:Name="btRec" Content="Просмотр записей" Margin="8, 8"  Width="Auto" Click="btRec_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

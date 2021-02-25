@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalonFaceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="IDClient" />
+    </Key>
+    <Property Name="IDClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="NumberPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BD" Type="DateTime" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateRegistration" Type="DateTime" Precision="0" />
+    <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gender1" Relationship="Self.FK__Clients__Gender__412EB0B6" FromRole="Clients" ToRole="Gender" />
+    <NavigationProperty Name="ServiceClients" Relationship="Self.FK__ServiceCl__Clien__4222D4EF" FromRole="Clients" ToRole="ServiceClients" />
+    <NavigationProperty Name="TagsClient" Relationship="Self.FK__TagsClien__Clien__440B1D61" FromRole="Clients" ToRole="TagsClient" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="IDGender" />
+    </Key>
+    <Property Name="IDGender" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameGender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__Clients__Gender__412EB0B6" FromRole="Gender" ToRole="Clients" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="IDService" />
+    </Key>
+    <Property Name="IDService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameService" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeService" Type="Int32" />
+    <Property Name="Sale" Type="Int32" />
+    <Property Name="Discount" Type="Int32" />
+    <NavigationProperty Name="ServiceClients" Relationship="Self.FK__ServiceCl__Servi__4316F928" FromRole="Service" ToRole="ServiceClients" />
+  </EntityType>
+  <EntityType Name="ServiceClients">
+    <Key>
+      <PropertyRef Name="IDServiceClient" />
+    </Key>
+    <Property Name="IDServiceClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" />
+    <Property Name="TimeRecord" Type="DateTime" Precision="3" />
+    <Property Name="ServiceID" Type="Int32" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__ServiceCl__Clien__4222D4EF" FromRole="ServiceClients" ToRole="Clients" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__ServiceCl__Servi__4316F928" FromRole="ServiceClients" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Tags">
+    <Key>
+      <PropertyRef Name="IDTag" />
+    </Key>
+    <Property Name="IDTag" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameTag" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Colog" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TagsClient" Relationship="Self.FK__TagsClien__TagID__44FF419A" FromRole="Tags" ToRole="TagsClient" />
+  </EntityType>
+  <EntityType Name="TagsClient">
+    <Key>
+      <PropertyRef Name="IDTagClient" />
+    </Key>
+    <Property Name="IDTagClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" />
+    <Property Name="TagID" Type="Int32" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__TagsClien__Clien__440B1D61" FromRole="TagsClient" ToRole="Clients" />
+    <NavigationProperty Name="Tags" Relationship="Self.FK__TagsClien__TagID__44FF419A" FromRole="TagsClient" ToRole="Tags" />
+  </EntityType>
+  <Association Name="FK__Clients__Gender__412EB0B6">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+    <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="IDGender" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ServiceCl__Clien__4222D4EF">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+    <End Role="ServiceClients" Type="Self.ServiceClients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="IDClient" />
+      </Principal>
+      <Dependent Role="ServiceClients">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TagsClien__Clien__440B1D61">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+    <End Role="TagsClient" Type="Self.TagsClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="IDClient" />
+      </Principal>
+      <Dependent Role="TagsClient">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ServiceCl__Servi__4316F928">
+    <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="ServiceClients" Type="Self.ServiceClients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="IDService" />
+      </Principal>
+      <Dependent Role="ServiceClients">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TagsClien__TagID__44FF419A">
+    <End Role="Tags" Type="Self.Tags" Multiplicity="0..1" />
+    <End Role="TagsClient" Type="Self.TagsClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tags">
+        <PropertyRef Name="IDTag" />
+      </Principal>
+      <Dependent Role="TagsClient">
+        <PropertyRef Name="TagID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SalonFaceEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clients" EntityType="Self.Clients" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" />
+    <EntitySet Name="Service" EntityType="Self.Service" />
+    <EntitySet Name="ServiceClients" EntityType="Self.ServiceClients" />
+    <EntitySet Name="Tags" EntityType="Self.Tags" />
+    <EntitySet Name="TagsClient" EntityType="Self.TagsClient" />
+    <AssociationSet Name="FK__Clients__Gender__412EB0B6" Association="Self.FK__Clients__Gender__412EB0B6">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ServiceCl__Clien__4222D4EF" Association="Self.FK__ServiceCl__Clien__4222D4EF">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="ServiceClients" EntitySet="ServiceClients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TagsClien__Clien__440B1D61" Association="Self.FK__TagsClien__Clien__440B1D61">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="TagsClient" EntitySet="TagsClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ServiceCl__Servi__4316F928" Association="Self.FK__ServiceCl__Servi__4316F928">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="ServiceClients" EntitySet="ServiceClients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TagsClien__TagID__44FF419A" Association="Self.FK__TagsClien__TagID__44FF419A">
+      <End Role="Tags" EntitySet="Tags" />
+      <End Role="TagsClient" EntitySet="TagsClient" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
